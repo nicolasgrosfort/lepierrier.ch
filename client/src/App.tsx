@@ -23,6 +23,12 @@ interface Problem {
     updatedAt: Date
 }
 
+interface Path {
+    type: string
+    holdId: number
+    problemId: number
+}
+
 const nodejs = 'http://192.168.1.6:5121'
 const socket = io(nodejs, {
     withCredentials: true,
@@ -35,6 +41,7 @@ const App = () => {
     const [users, setUsers] = useState(0)
     const [holds, setHolds] = useState<Hold[]>([])
     const [problems, setProblems] = useState<Problem[]>([])
+    const [paths, setPaths] = useState<Path[]>([])
 
     useEffect(() => {
         //Sockets
@@ -75,9 +82,16 @@ const App = () => {
             console.log('Problems listed : ', _problems)
         })
 
+        socket.on('paths:create', (_path: Path) => {
+            setPaths((paths) => [...paths, _path])
+            console.log('Path created : ', _path)
+        })
+
         //Fetchs
         getAllHold()
         getAllProblems()
+
+        addPath()
 
         return () => {
             socket.off('user:traffic')
@@ -87,8 +101,32 @@ const App = () => {
             socket.off('problems:create')
             socket.off('problems:delete')
             socket.off('problems:list')
+            socket.off('paths:create')
         }
     }, [])
+
+    const addPath = () => {
+        const data = {
+            type: 'mix',
+            holdId: 179,
+            problemId: 57,
+        }
+
+        fetch(`${nodejs}/api/paths`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data)
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            })
+    }
 
     const addProblem = () => {
         const data = {

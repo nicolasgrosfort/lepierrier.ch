@@ -26,7 +26,6 @@ Data about problems created by climbers
 | name      | string  |
 | grade     | string  |
 | setter    | string  |
-| date      | date    |       |
 | rate      | number  | [1-5] |
 | success   | number  |
 | feet      | boolean |
@@ -35,10 +34,11 @@ Data about problems created by climbers
 
 ---
 
-## Holds-Problems
+## Paths
 
-| fields      | type   | infos |
-| :---------- | :----- | :---- |
-| id          | number | 🔑    |
-| id_holds    | number | 🔐    |
-| id_problems | number | 🔐    |
+| fields    | type   | infos             |
+| :-------- | :----- | :---------------- |
+| id        | number | 🔑                |
+| type      | string | [foot, hand, mix] |
+| holdId    | number | 🔐                |
+| problemId | number | 🔐                |

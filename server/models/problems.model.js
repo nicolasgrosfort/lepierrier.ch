@@ -11,9 +11,6 @@ module.exports = (sequelize, Sequelize) => {
             setter: {
                 type: Sequelize.STRING,
             },
-            date: {
-                type: Sequelize.DATE,
-            },
             rate: {
                 type: Sequelize.INTEGER,
             },

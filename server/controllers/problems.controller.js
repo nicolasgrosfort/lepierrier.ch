@@ -18,7 +18,6 @@ exports.create = (req, res) => {
         name: req.body.name,
         grade: req.body.grade,
         setter: req.body.setter,
-        date: req.body.date,
         rate: req.body.rate,
         done: req.body.done,
         feet: req.body.feet,

@@ -21,5 +21,13 @@ db.sequelize = sequelize
 
 db.holds = require('./holds.model.js')(sequelize, Sequelize)
 db.problems = require('./problems.model.js')(sequelize, Sequelize)
+db.paths = require('./paths.model.js')(sequelize, Sequelize)
+
+db.holds.belongsToMany(db.problems, { through: db.paths })
+db.problems.belongsToMany(db.holds, { through: db.paths })
+
+db.holds.sync()
+db.problems.sync()
+db.paths.sync()
 
 module.exports = db

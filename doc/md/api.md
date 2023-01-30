@@ -15,6 +15,12 @@
 
 ## Problems
 
-| Method | URL           | Infos                |
-| ------ | ------------- | -------------------- |
-| POST   | /api/problems | Create a new problem |
+| Method | URL           | WS              | Infos                |
+| ------ | ------------- | --------------- | -------------------- |
+| POST   | /api/problems | problems:create | Create a new problem |
+
+## Paths
+
+| Method | URL        | WS           | Infos             |
+| ------ | ---------- | ------------ | ----------------- |
+| POST   | /api/paths | paths:create | Create a new path |

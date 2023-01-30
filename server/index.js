@@ -56,6 +56,7 @@ module.exports = io
 
 require('./routes/holds.routes')(app)
 require('./routes/problems.routes')(app)
+require('./routes/paths.routes')(app)
 
 server.listen(port, () => {
     console.log(`Server running on http://${ip.address()}:${port}`)

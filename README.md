@@ -46,7 +46,7 @@ $ yarn workspace server add socket.io
 
 ## Documentation
 
--   [api](./doc/md/api.md)
+-   [API](./doc/md/api.md)
 -   [Concept](./doc/md/concept.md)
 -   [Data](./doc/md/data.md)
 
